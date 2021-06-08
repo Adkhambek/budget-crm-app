@@ -1,32 +1,32 @@
 [
     {
         "id": 1,
-        "source": "Job",
-        "income": 400,
+        "source": "Food",
+        "cost": 100,
         "date": "6/8/2021"
     },
     {
         "id": 2,
-        "source": "Business",
-        "income": 600,
+        "source": "Car insurance",
+        "cost": 100,
         "date": "6/8/2021"
     },
     {
         "id": 3,
-        "source": "Investments",
-        "income": 300,
+        "source": "Utility bills",
+        "cost": 200,
         "date": "6/8/2021"
     },
     {
         "id": 4,
-        "source": "Ranting business",
-        "income": 200,
+        "source": "Investments",
+        "cost": 200,
         "date": "6/8/2021"
     },
     {
         "id": 5,
-        "source": "Youtube",
-        "income": 100,
+        "source": "Charity",
+        "income": 50,
         "date": "6/8/2021"
     }
 ]
