@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "source": "Food",
-        "cost": 100,
+        "source": "new business",
+        "income": 300,
         "date": "6/8/2021"
     },
     {

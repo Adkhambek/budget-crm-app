@@ -41,13 +41,34 @@ app.post('/incomes', (req, res) => {
 
 })
 
-app.delete('/incomes/:id', (req, res) => {
+app.post('/incomes/delete/:id', (req, res) => {
     const { id } = req.params
     let data = fs.readFileSync(path.join(__dirname, 'database', 'incomes.json'))
     data = JSON.parse(data.toString())
     const remainingIncome = data.filter(value => value.id != id)
     fs.writeFileSync(path.join(__dirname, 'database', 'incomes.json'), JSON.stringify(remainingIncome, null, 4))
     res.status(200).json({message: `the income ( id = ${id} ) was deleted sucessfully`})
+})
+
+app.get('/incomes/update/:id', (req, res) => {
+    const { id } = req.params
+    let data = fs.readFileSync(path.join(__dirname, 'database', 'incomes.json'))
+    data = JSON.parse(data.toString())
+    const income = data.find(inc => inc.id == id)
+    if(income) return res.json(income)
+    else return res.status(404).end('NOT FOUND')
+})
+
+app.post('/incomes/update/:id', (req, res) => {
+    const { id } = req.params
+    let data = fs.readFileSync(path.join(__dirname, 'database', 'incomes.json'))
+    data = JSON.parse(data.toString())
+    const {source, income} =  req.body
+    const updatedIncome = { id: +id, source, income, date }
+    const index = data.findIndex(ind => ind.id == id)
+    data[index] = updatedIncome
+    fs.writeFileSync(path.join(__dirname, 'database', 'incomes.json'), JSON.stringify(data, null, 4))
+    res.status(201).json({message: "the income was updated successfully"})
 })
 
 app.get('/expenses', (req, res) => {
@@ -82,35 +103,37 @@ app.post('/expenses', (req, res) => {
 
 }) 
 
-app.delete('/expenses/:id', (req, res) => {
+app.post('/expenses/delete/:id', (req, res) => {
     const { id } = req.params
     let data = fs.readFileSync(path.join(__dirname, 'database', 'expenses.json'))
     data = JSON.parse(data.toString())
     const remainingExpenses = data.filter(value => value.id != id)
     fs.writeFileSync(path.join(__dirname, 'database', 'expenses.json'), JSON.stringify(remainingExpenses, null, 4))
     res.status(200).json({message: `the expense ( id = ${id} ) was deleted sucessfully`})
+}) 
+
+app.get('/expenses/update/:id', (req, res) => {
+    const { id } = req.params
+    let data = fs.readFileSync(path.join(__dirname, 'database', 'expenses.json'))
+    data = JSON.parse(data.toString())
+    const expense = data.find(inc => inc.id == id)
+    if(expense) return res.json(expense)
+    else return res.status(404).end('NOT FOUND')
+})
+
+app.post('/expenses/update/:id', (req, res) => {
+    const { id } = req.params
+    let data = fs.readFileSync(path.join(__dirname, 'database', 'expenses.json'))
+    data = JSON.parse(data.toString())
+    const {source, cost} =  req.body
+    const updatedExpenses = { id: +id, source, cost, date }
+    const index = data.findIndex(ind => ind.id == id)
+    data[index] = updatedExpenses
+    fs.writeFileSync(path.join(__dirname, 'database', 'expenses.json'), JSON.stringify(data, null, 4))
+    res.status(201).json({message: "the expenses was updated successfully"})
 })
 
 app.listen(PORT, () => console.log('localhost is running on http://' + host + ':' + PORT)) 
 
-// 
-// const incomes = [
-//     {id: 1, source: 'Job', income: 400, date},
-//     {id: 2, source: 'Business', income: 600, date},
-//     {id: 3, source: 'Investments', income: 300, date},
-//     {id: 4, source: 'Ranting business', income: 200, date},
-//     {id: 5, source: 'Youtube', income: 100, date},
-// ]
 
-// fs.writeFile(path.join(__dirname, 'database', 'incomes.json'), JSON.stringify(incomes, null, 4), () => {} )
-
-// const expenses = [
-//     {id: 1, source: 'Food', income: 100, date},
-//     {id: 2, source: 'Car insurance', income: 100, date},
-//     {id: 3, source: 'Utility bills', income: 200, date},
-//     {id: 4, source: 'Investments', income: 200, date},
-//     {id: 5, source: 'Charity', income: 50, date},
-// ]
-
-// fs.writeFile(path.join(__dirname, 'database', 'expenses.json'), JSON.stringify(expenses, null, 4), () => {} )
 
