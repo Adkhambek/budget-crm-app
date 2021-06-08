@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "source": "Food",
+        "income": 100,
+        "date": "6/8/2021"
+    },
+    {
+        "id": 2,
+        "source": "Car insurance",
+        "income": 100,
+        "date": "6/8/2021"
+    },
+    {
+        "id": 3,
+        "source": "Utility bills",
+        "income": 200,
+        "date": "6/8/2021"
+    },
+    {
+        "id": 4,
+        "source": "Investments",
+        "income": 200,
+        "date": "6/8/2021"
+    },
+    {
+        "id": 5,
+        "source": "Charity",
+        "income": 50,
+        "date": "6/8/2021"
+    }
+]
