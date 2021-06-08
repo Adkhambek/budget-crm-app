@@ -8,19 +8,19 @@
     {
         "id": 2,
         "source": "Car insurance",
-        "cost": 100,
+        "income": 100,
         "date": "6/8/2021"
     },
     {
         "id": 3,
         "source": "Utility bills",
-        "cost": 200,
+        "income": 200,
         "date": "6/8/2021"
     },
     {
         "id": 4,
         "source": "Investments",
-        "cost": 200,
+        "income": 200,
         "date": "6/8/2021"
     },
     {
