@@ -22,5 +22,11 @@
         "source": "Investments",
         "cost": 200,
         "date": "6/8/2021"
+    },
+    {
+        "id": 5,
+        "source": "bill",
+        "cost": 200,
+        "date": "6/9/2021"
     }
 ]
