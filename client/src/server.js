@@ -24,6 +24,11 @@ app.get('/incomes/delete/:id', (req, res) => {
     res.redirect('/incomes')
 })
 
+app.get('/incomes/update/:id', (req, res) => {
+    let { id } = req.params
+    res.sendFile(path.join(__dirname, 'views', 'incomeupdate.html'))
+})
+
 app.get('/expenses', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'expenses.html'))
 })
